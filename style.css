@@ -20,12 +20,12 @@ body {
 
 .hidden-message{
   opacity: 0;
-  animation: fadeInOut 4s ease-in-out infinite;
+  animation: fadeInOut 50s ease-in-out infinite;
   
 }
 
 @keyframes fadeInOut{
-  0% { opacity: 0; transform: translate(20px);}
+  0% { opacity: 1; transform: translate(20px);}
   25% { opacity: 1; transform: translate(0);}
   75% { opacity: 1; transform: translate(0);}
   100% { opacity: 0; transform: translate(20px);}
@@ -34,7 +34,7 @@ body {
 .hidden-message.show{
   opacity: 1;
   transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1s ease, transform 50s ease;
 }
 
 
@@ -46,10 +46,18 @@ body {
 
 .logo2{
   opacity: 0;
-  animation: fadeInOut 4s ease-in-out infinite;
+  animation: fadeInOut 50s ease-in-out infinite;
   
 }
-
+#typing {
+  font-size: 1rem;
+  font-weight: bold;
+  border-right: 2px solid #333;
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-style: italic;
+}
 
 /* ===== HEADER ===== */
 header {
@@ -228,6 +236,7 @@ color: white;
   color:white;
   text-decoration: none;
 }
+
 
 .contact a:hover {
   text-decoration: underline;

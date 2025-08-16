@@ -22,8 +22,8 @@
   <!-- ===== HERO ===== -->
   <section class="hidden-message">
     
-    <h1 class="hero">Hi, I'm Jennifer</h1>
-    <p class = "hero2">A passionate Junior Web Developer specializing in HTML, CSS & JavaScript.</p>
+    <h1 class="hero">Hi, I'm JENNIFER</h1>
+    <p class = "hero2" id="typing">A passionate Junior Web Developer specializing in HTML, CSS & JavaScript.</p>
   </section>
 
   <!-- ===== ABOUT ===== -->
@@ -62,7 +62,7 @@
       <p>A responsive website built using HTML, CSS, and JavaScript.</p>
     </div>
     <div class="project-card">
-      <img src="images/project2.jpg" alt="Project 2">
+      <a href="https://jennifer-raymondo.github.io/WEB-APP/">
       <h3>Project Two</h3>
       <p>A JavaScript interactive web app for task management.</p>
     </div>
@@ -71,8 +71,11 @@
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:jennifer@example.com">jenniferraymondo295@gmail.com</a></p>
-    <p>GitHub: <a href="#">github.com/yourusername</a></p>
+    <p class="link">Linkedin: <a href="https://www.linkedin.com/in/jennifer-raymondo" target="_blank">My LinkedIn</a></p>
+    <p>Email: <a href="mailto:jenniferraymondo295@gmail.com">jenniferraymondo295@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Jennifer-Raymondo" target="_blank">github.com/Jennifer-Raymondo</a></p>
+    
+
   </section>
 
   <!-- ===== FOOTER ===== -->
@@ -81,11 +84,59 @@
   </footer>
 
 
-<script>
+<!-- <script>
   window.addEventListener('load', function() {
     document.querySelector('.hidden-message').classList.add('show');
   });
-</script>
+</script> -->
 
+<script>
+const texts = [
+  "Hi, I'm Jennifer",
+  "A passionate Junior Web Developer.",
+  " specializing in HTML, CSS & JavaScript.",
+  "I love building interactive websites."
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let typingElement = document.getElementById("typing");
+
+function type() {
+  let currentText = texts[textIndex];
+
+  // If starting new line, add a <div>
+  if (charIndex === 0) {
+    typingElement.innerHTML += "<div id='line" + textIndex + "'></div>";
+  }
+
+  let lineElement = document.getElementById("line" + textIndex);
+
+  // Type letter by letter in that line
+  lineElement.textContent = currentText.substring(0, charIndex + 1);
+  charIndex++;
+
+  if (charIndex === currentText.length) {
+    // Done with this line → move to next
+    textIndex++;
+    charIndex = 0;
+
+    if (textIndex === texts.length) {
+      // Finished all lines → pause → restart
+      setTimeout(() => {
+        typingElement.innerHTML = ""; // clear everything
+        textIndex = 0;
+        charIndex = 0;
+        type(); // restart typing
+      }, 3000); // 3s pause with all text shown
+      return;
+    }
+  }
+
+  setTimeout(type, 100); // typing speed
+}
+
+type();
+</script>
 </body>
 </html>
